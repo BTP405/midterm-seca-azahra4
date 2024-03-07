@@ -3,8 +3,8 @@ Module: management_system.py
 
 This module contains classes for managing employees, projects, and tasks in a fictional company.
 """
-import employee
-class Project(employee.Employee):
+from employee import Employee
+class Project():
     """
     Class representing a project in the company.
 
@@ -16,6 +16,7 @@ class Project(employee.Employee):
         end_date (str): The end date of the project.
         employees (list): List of employees associated with the project.
     """
+    employees = []
 
     def __init__(self, project_id, name, description, start_date, end_date):
         """
@@ -34,11 +35,11 @@ class Project(employee.Employee):
         self.start_date = start_date
         self.end_date = end_date
 
-    def assign_employee(self, employee):
+    def assign_employee(self, employee: Employee):
         """
         Assign an employee to the project.
 
         Args:
             employee (Employee): The employee to be assigned to the project.
         """
-        employee = super().__init__(employee.name, employee.emp_id, employee.role, employee.salary)
+        self.employees.append(employee)
