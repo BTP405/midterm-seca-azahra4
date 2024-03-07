@@ -9,6 +9,7 @@ Classes:
     - Task: Represents a task in the company.
     - ManagementSystem: Provides functionality to manage employees, projects, and tasks.
 """
+import sys
 from employee import Employee
 from project import Project
 from task import Task
@@ -47,7 +48,7 @@ class ManagementSystem(Employee, Project, Task):
             emp_id (str): The ID of the employee to be removed.
         """
         for match in self.employees:
-            if match.emp_id == emp_id:
+            if match.emp_id == int(emp_id):
                 del match
 
     def add_project(self, project: Project):
@@ -79,4 +80,9 @@ class ManagementSystem(Employee, Project, Task):
         Raises:
             ValueError: If employee or project is not found.
         """
-        
+        for emp in self.employees:
+            if (emp_id == emp.emp_id):
+                for proj in self.projects:
+                    if (project_id == proj.project_id):
+                        proj.assign_employee(emp)
+            raise ValueError("Employee/Project not found!")

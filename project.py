@@ -4,7 +4,7 @@ Module: management_system.py
 This module contains classes for managing employees, projects, and tasks in a fictional company.
 """
 from employee import Employee
-class Project():
+class Project:
     """
     Class representing a project in the company.
 
